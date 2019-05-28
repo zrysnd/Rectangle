@@ -2,6 +2,10 @@
 namespace Rectangle.classes
 {
 
+    public interface Iangle
+    {
+        float getAngle();
+    }
 
     public interface I3dPoint
     {   
@@ -12,7 +16,6 @@ namespace Rectangle.classes
 
     public interface I3dVector : I3dPoint
     {
-
     }
 
     public interface I3dVectorScalable : I3dVector
@@ -24,14 +27,19 @@ namespace Rectangle.classes
     public interface IRectangleAccessable
     {
         I3dPoint getPosition();
-        I3dVector getVector1();
-        I3dVector getVector2();
+        Iangle AngleWithXYPlane();
+        Iangle AngleWithXZPlane();
+        Iangle AngleWithYZPlane();
+        Iangle AngleWithGivenVector(I3dVector vector );
     }
 
     public interface IRectangleChangable
     {
         void SetPosition();
-        void SetVectors();
+        void SetAngleWithXYPlane(Iangle angle);
+        void SetAngleWithXZPlane(Iangle angle);
+        void SetAngleWithYZPlane(Iangle angle);
+        void SetAngleWithGivenVector(I3dVector vector, Iangle angle);
     }
 
     public interface IRectangle : IRectangleChangable, IRectangleAccessable

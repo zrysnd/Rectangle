@@ -43,21 +43,47 @@ namespace Rectangle.classes
         private I3dVectorScalable _vector1;
         private I3dVectorScalable _vector2;
 
-        public Rectangle()
-        {
-        }
-
-        public I3dPoint getPosition()
-        {
-            return _startPoint;
-        }
-
-        public I3dVector getVector1()
+        public Iangle AngleWithGivenVector(I3dVector vector)
         {
             throw new NotImplementedException();
         }
 
-        public I3dVector getVector2()
+        public Iangle AngleWithXYPlane()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Iangle AngleWithXZPlane()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Iangle AngleWithYZPlane()
+        {
+            throw new NotImplementedException();
+        }
+
+        public I3dPoint getPosition()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetAngleWithGivenVector(I3dVector vector, Iangle angle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetAngleWithXYPlane(Iangle angle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetAngleWithXZPlane(Iangle angle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetAngleWithYZPlane(Iangle angle)
         {
             throw new NotImplementedException();
         }
@@ -67,9 +93,9 @@ namespace Rectangle.classes
             throw new NotImplementedException();
         }
 
-        public void SetVectors()
+        private void checkRep()
         {
-            throw new NotImplementedException();
+
         }
     }
 
