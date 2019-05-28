@@ -10,11 +10,9 @@ namespace Rectangle.classes
         float GetZ();
     }
 
-    public interface I3dVector
+    public interface I3dVector : I3dPoint
     {
-        float getXComponent();
-        float getYComponent();
-        float getZComponent();
+        void scale(float multplier);
     }
 
     public interface IRectangleAccessable

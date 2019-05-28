@@ -1,7 +1,6 @@
 ﻿using System;
 namespace Rectangle.classes
 {   
-    // Implemented two classes by accident.. 
     public class Rectangle : IRectangle
     {
         private I3dPoint _startPoint;
@@ -48,53 +47,28 @@ namespace Rectangle.classes
         {
         }
 
-        public void setPositon(float x, float y, float z)
-        {
-            _x = x;
-            _y = y;
-            _z = z;
-        }
-
         public float GetX()
         {
-            return _x;
+            throw new NotImplementedException();
         }
+
         public float GetY()
         {
-            return _y;
+            throw new NotImplementedException();
         }
+
         public float GetZ()
         {
-            return _z;
+            throw new NotImplementedException();
         }
     }
 
-    public class VectorIn3D : I3dVector
+    public class VectorIn3D : PointIn3D, I3dVector
     {
-        private float _compenentX;
-        private float _compenentY;
-        private float _compenentZ;
+        public void scale(float multplier)
+        {
 
-        public void SetVector(float x, float y, float z)
-        {
-            _compenentX = x;
-            _compenentY = y;
-            _compenentZ = z;
         }
-
-        public float getXComponent()
-        {
-            return _compenentX;
-        }
-        public float getYComponent()
-        {
-            return _compenentY;
-        }
-        public float getZComponent()
-        {
-            return _compenentZ;
-        }
-
     }
 
 
