@@ -14,7 +14,7 @@ namespace Rectangle.classes
         public float GetZ(){}
     }
 
-    public class AngleMessurer : IAngleMessurer
+    public class AngleMeasurer : IAngleMeasurer
     {
 
     }

@@ -23,7 +23,7 @@ namespace Rectangle.classes
         void scale(float multplier);
     }
 
-    public interface IAngleMessurer
+    public interface IAngleMeasurer
     {
         /*tried to think of a way making vectors and rectangles the same type, and 
         have only one function here, but couldn't do it*/
