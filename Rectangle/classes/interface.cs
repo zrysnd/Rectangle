@@ -12,8 +12,14 @@ namespace Rectangle.classes
 
     public interface I3dVector : I3dPoint
     {
+
+    }
+
+    public interface I3dVectorScalable : I3dVector
+    {
         void scale(float multplier);
     }
+
 
     public interface IRectangleAccessable
     {

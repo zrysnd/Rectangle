@@ -63,11 +63,11 @@ namespace Rectangle.classes
         }
     }
 
-    public class VectorIn3D : PointIn3D, I3dVector
+    public class VectorIn3D : PointIn3D, I3dVectorScalable
     {
         public void scale(float multplier)
         {
-
+            throw new NotImplementedException();
         }
     }
 
