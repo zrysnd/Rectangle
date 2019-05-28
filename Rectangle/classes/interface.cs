@@ -23,19 +23,27 @@ namespace Rectangle.classes
         void scale(float multplier);
     }
 
+    public interface IAngleMessurer
+    {
+        /*tried to think of a way making vectors and rectangles the same type, and 
+        have only one function here, but couldn't do it*/
+        Iangle messureAngle(I3dVector vector1, I3dVector vector2);
+        Iangle messureAngle(I3dVector vector, IRectangleAccessable rectangle);
+        Iangle messureAngle(IRectangleAccessable rectangle1, IRectangleAccessable rectangle2);
+    }
 
     public interface IRectangleAccessable
     {
         I3dPoint getPosition();
-        Iangle AngleWithXYPlane();
-        Iangle AngleWithXZPlane();
-        Iangle AngleWithYZPlane();
-        Iangle AngleWithGivenVector(I3dVector vector );
+        I3dVector GetVector1();
+        I3dVector GetVector2();
     }
 
     public interface IRectangleChangable
     {
-        void SetPosition();
+        void SetPosition( I3dPoint startPoint );
+        void SetVectors(I3dVector vector1, I3dVector vector2);
+        /*not sure whether following functions are good*/
         void SetAngleWithXYPlane(Iangle angle);
         void SetAngleWithXZPlane(Iangle angle);
         void SetAngleWithYZPlane(Iangle angle);

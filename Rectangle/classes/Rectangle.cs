@@ -7,22 +7,17 @@ namespace Rectangle.classes
         private float _y;
         private float _z;
 
-        public float GetX()
-        {
-            throw new NotImplementedException();
-        }
+        public float GetX(){}
 
-        public float GetY()
-        {
-            throw new NotImplementedException();
-        }
+        public float GetY(){}
 
-        public float GetZ()
-        {
-            throw new NotImplementedException();
-        }
+        public float GetZ(){}
     }
 
+    public class AngleMessurer : IAngleMessurer
+    {
+
+    }
 
     public class VectorIn3D : PointIn3D, I3dVector
     {
@@ -31,10 +26,7 @@ namespace Rectangle.classes
 
     public class VectorIn3DScalable: VectorIn3D, I3dVectorScalable
     {
-        public void scale(float multplier)
-        {
-            throw new NotImplementedException();
-        }
+        public void scale(float multplier){}
     }
 
     public class Rectangle : IRectangle
@@ -43,68 +35,12 @@ namespace Rectangle.classes
         private I3dVectorScalable _vector1;
         private I3dVectorScalable _vector2;
 
-        public Iangle AngleWithGivenVector(I3dVector vector)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Iangle AngleWithXYPlane()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Iangle AngleWithXZPlane()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Iangle AngleWithYZPlane()
-        {
-            throw new NotImplementedException();
-        }
-
-        public I3dPoint getPosition()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetAngleWithGivenVector(I3dVector vector, Iangle angle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetAngleWithXYPlane(Iangle angle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetAngleWithXZPlane(Iangle angle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetAngleWithYZPlane(Iangle angle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetPosition()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void checkRep()
-        {
-
-        }
+        private void checkRep(){}
     }
 
     public class RectangleScalable : Rectangle, IRectangleScalable
     {
-        public void scaleRectangle(float multplier)
-        {
-            throw new NotImplementedException();
-        }
+        public void scaleRectangle(float multplier){}
     }
 
 }
