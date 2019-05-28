@@ -37,4 +37,9 @@ namespace Rectangle.classes
     public interface IRectangle : IRectangleChangable, IRectangleAccessable
     {
     }
+
+    public interface IRectangleScalable: IRectangle
+    {
+        void scaleRectangle(float multplier);
+    }
 }
