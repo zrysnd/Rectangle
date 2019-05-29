@@ -7,55 +7,85 @@ namespace Rectangle.classes
         float getAngle();
     }
 
-    public interface I3dPoint
-    {   
+    public interface ILengthGettable
+    {
+        float GetLength();
+    }
+
+    public interface IScalable
+    {
+        void scale(float multiplier);
+    }
+
+    public interface IRelocatable 
+    {
+        void Relocate(float x, float y, float z);
+        void MoveAlongX(float distance);
+        void MoveAlongY(float distance);
+        void MoveAlongZ(float distance);
+    }
+
+    public interface IPointNotMovableIn3D
+    {
         float GetX();
         float GetY();
         float GetZ();
     }
 
-    public interface I3dVector : I3dPoint
+    public interface Ilocatable
+    {
+        IPointNotMovableIn3D GetLocation();
+    }
+
+    public interface IPointIn3D: IPointNotMovableIn3D, IRelocatable
     {
     }
 
-    public interface I3dVectorScalable : I3dVector
+    public interface IVectorLengthFixedIn3D: IPointNotMovableIn3D, ILengthGettable
     {
-        void scale(float multplier);
+    }
+
+    public interface IVectorIn3D : IVectorLengthFixedIn3D, IScalable
+    {
+        void SetLength(float length);
+    }
+
+    public interface IRectangleAccessable: Ilocatable
+    {
+        // I think GetVector is necessary to measure angles.
+        IVectorLengthFixedIn3D GetVector1();
+        IVectorLengthFixedIn3D GetVector2();
+        //return float or ILengthGettable? If returning interface, it's easier to change
+        //which primitive type to use for length, but makes client code longer, need to add
+        //call .GetLength() to get real length data.
+        ILengthGettable GetLongerEdgeLength();
+        ILengthGettable GetShorterEdgeLength();
+    }
+
+    public interface IRotatable
+    {
+        void RotateAlongAxis(Iangle angle, IVectorLengthFixedIn3D axis);
+    }
+
+    public interface IRectangle: IRectangleAccessable, IRelocatable, IScalable, IRotatable
+    {
+        void SetVectors(IVectorIn3D vector1, IVectorIn3D vector2);
     }
 
     public interface IAngleMeasurer
     {
         /*tried to think of a way making vectors and rectangles the same type, and 
         have only one function here, but couldn't do it*/
-        Iangle messureAngle(I3dVector vector1, I3dVector vector2);
-        Iangle messureAngle(I3dVector vector, IRectangleAccessable rectangle);
+        Iangle messureAngle(IVectorLengthFixedIn3D vector1, IVectorLengthFixedIn3D vector2);
+        Iangle messureAngle(IVectorLengthFixedIn3D vector, IRectangleAccessable rectangle);
         Iangle messureAngle(IRectangleAccessable rectangle1, IRectangleAccessable rectangle2);
     }
 
-    public interface IRectangleAccessable
-    {
-        I3dPoint getPosition();
-        I3dVector GetVector1();
-        I3dVector GetVector2();
-    }
 
-    public interface IRectangleChangable
-    {
-        void SetPosition( I3dPoint startPoint );
-        void SetVectors(I3dVector vector1, I3dVector vector2);
-        /*not sure whether following functions are good*/
-        void SetAngleWithXYPlane(Iangle angle);
-        void SetAngleWithXZPlane(Iangle angle);
-        void SetAngleWithYZPlane(Iangle angle);
-        void SetAngleWithGivenVector(I3dVector vector, Iangle angle);
-    }
 
-    public interface IRectangle : IRectangleChangable, IRectangleAccessable
-    {
-    }
 
-    public interface IRectangleScalable: IRectangle
-    {
-        void scaleRectangle(float multplier);
-    }
+
+
+
+
 }
