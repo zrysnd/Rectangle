@@ -9,7 +9,7 @@ namespace Rectangle.classes
 
     public interface ILengthGettable
     {
-        float GetLength();
+        float GetLength();//use property (look up in C#), instead of function getter
     }
 
     public interface IScalable
@@ -27,25 +27,25 @@ namespace Rectangle.classes
 
     public interface IPointNotMovableIn3D
     {
-        float GetX();
+        float GetX(); //use property (look up in C#), instead of function getter
         float GetY();
         float GetZ();
     }
 
     public interface Ilocatable
     {
-        IPointNotMovableIn3D GetLocation();
+        IPointNotMovableIn3D GetLocation();//use property (look up in C#), instead of function getter
     }
 
     public interface IPointIn3D: IPointNotMovableIn3D, IRelocatable
     {
     }
 
-    public interface IVectorLengthFixedIn3D: IPointNotMovableIn3D, ILengthGettable
+    public interface IVectorLengthFixedIn3D: IPointNotMovableIn3D, ILengthGettable // not only its length is fixed, by your construction its everything is fixed
     {
     }
 
-    public interface IVectorIn3D : IVectorLengthFixedIn3D, IScalable
+    public interface IVectorIn3D : IVectorLengthFixedIn3D, IScalable// IVectorIn3D is lengthfixed is not movable, but it is scalable? scale is move
     {
         void SetLength(float length);
     }
@@ -53,7 +53,7 @@ namespace Rectangle.classes
     public interface IRectangleAccessable: Ilocatable
     {
         // I think GetVector is necessary to measure angles.
-        IVectorLengthFixedIn3D GetVector1();
+        IVectorLengthFixedIn3D GetVector1(); //use property (look up in C#), instead of function getter
         IVectorLengthFixedIn3D GetVector2();
         //return float or ILengthGettable? If returning interface, it's easier to change
         //which primitive type to use for length, but makes client code longer, need to add
@@ -69,10 +69,10 @@ namespace Rectangle.classes
 
     public interface IRectangle: IRectangleAccessable, IRelocatable, IScalable, IRotatable
     {
-        void SetVectors(IVectorIn3D vector1, IVectorIn3D vector2);
+        void SetVectors(IVectorIn3D vector1, IVectorIn3D vector2); //you're exposing its implementation too early
     }
 
-    public interface IAngleMeasurer
+    public interface IAngleMeasurer //???????
     {
         /*tried to think of a way making vectors and rectangles the same type, and 
         have only one function here, but couldn't do it*/
