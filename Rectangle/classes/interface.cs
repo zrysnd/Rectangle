@@ -9,7 +9,7 @@ namespace Rectangle.classes
 
     public interface ILengthGettable
     {
-        float Length { get; }//use property (look up in C#), instead of function getter
+        float Length { get; }//use property (look up in C#), instead of function getter  -> changed to property.
     }
 
     public interface IScalable
@@ -27,7 +27,7 @@ namespace Rectangle.classes
 
     public interface IPointNotMovableIn3D
     {
-        float X { get; } //use property (look up in C#), instead of function getter
+        float X { get; } //use property (look up in C#), instead of function getter -> changed to property.
         float Y { get; }
         float Z { get; }
     }
@@ -41,7 +41,7 @@ namespace Rectangle.classes
     {
     }
 
-    public interface IVectorImmutableIn3D: IPointNotMovableIn3D, ILengthGettable // not only its length is fixed, by your construction its everything is fixed
+    public interface IVectorImmutableIn3D: IPointNotMovableIn3D, ILengthGettable // not only its length is fixed, by your construction its everything is fixed -> interface name changed.
     {
     }
 
@@ -56,12 +56,8 @@ namespace Rectangle.classes
 
     public interface IRectangleAccessable: Ilocatable
     {
-        // I think GetVector is necessary to measure angles.
         IVectorImmutableIn3D Vector1 { get; } //use property (look up in C#), instead of function getter
         IVectorImmutableIn3D Vector2 { get; }
-        //return float or ILengthGettable? If returning interface, it's easier to change
-        //which primitive type to use for length, but makes client code longer, need to add
-        //call .GetLength() to get real length data.
         ILengthGettable GetLongerEdgeLength();
         ILengthGettable GetShorterEdgeLength();
     }
@@ -73,7 +69,7 @@ namespace Rectangle.classes
 
     public interface IRectangle: IRectangleAccessable, IRelocatable, IScalable, IRotatable
     {
-        void SetVectors(IVectorImmutableIn3D vector1, IVectorImmutableIn3D vector2); //you're exposing its implementation too early
+        //you're exposing its implementation too early -> setVectors() removed.
     }
 
     /*
